@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bingyu 冰语 — Boba • Ice Cream • Coffee • Online Ordering & Cart</title>
+  <meta name="description" content="Bingyu is Sri Lanka's high-energy Chinese dessert & drinks corner-shop. Photogenic boba, sundaes, fruit teas and coffee from Rs. 250. Order online with customizable toppings! 🧋" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='36' r='24' fill='%23fff' stroke='%23332218' stroke-width='4'/%3E%3Cpath d='M14 22 L8 4 L26 13 Z' fill='%23fff' stroke='%23332218' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M50 22 L56 4 L38 13 Z' fill='%23fff' stroke='%23332218' stroke-width='4' stroke-linejoin='round'/%3E%3Crect x='12' y='48' width='40' height='10' rx='5' fill='%23E60012'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════ SVG DEFS (mascot + icons) ════════════════════════ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="cupTea" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#F3E2C7"/>
+        <stop offset="100%" stop-color="#D9A05B"/>
+      </linearGradient>
+
+      <!-- Bingyu Cat 冰语猫 — full body with boba cup -->
+      <symbol id="bingyu-cat" viewBox="0 0 260 280">
+        <!-- tail -->
+        <path d="M196 232 Q240 226 230 184 Q227 172 215 176 Q208 179 211 190 Q216 210 192 214 Z"
+              fill="#FFFFFF" stroke="#33221A" stroke-width="6" stroke-linejoin="round"/>
+        <!-- body -->
+        <ellipse cx="128" cy="212" rx="64" ry="56" fill="#FFFFFF" stroke="#33221A" stroke-width="6"/>
+        <!-- left arm -->
+        <path d="M74 206 Q60 222 72 236" fill="none" stroke="#33221A" stroke-width="6" stroke-linecap="round"/>
+        <!-- scarf -->
+        <path d="M70 178 Q128 198 186 178 L191 198 Q128 220 65 198 Z"
+              fill="#E60012" stroke="#33221A" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M112 210 L100 246 L124 238 Z" fill="#E60012" stroke="#33221A" stroke-width="5" stroke-linejoin="round"/>
+        <circle cx="118" cy="207" r="9" fill="#E60012" stroke="#33221A" stroke-width="5"/>
+        <!-- ears -->
+        <path d="M76 78 L58 16 L116 46 Z" fill="#FFFFFF" stroke="#33221A" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M84 66 L74 34 L104 51 Z" fill="#FFC9D4" stroke="none"/>
+        <path d="M180 78 L198 16 L140 46 Z" fill="#FFFFFF" stroke="#33221A" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M172 66 L182 34 L152 51 Z" fill="#FFC9D4" stroke="none"/>
+        <!-- head -->
+        <circle cx="128" cy="112" r="72" fill="#FFFFFF" stroke="#33221A" stroke-width="6"/>
+        <!-- happy closed eyes -->
+        <path d="M96 108 q9 -11 18 0" fill="none" stroke="#33221A" stroke-width="6.5" stroke-linecap="round"/>
+        <path d="M142 108 q9 -11 18 0" fill="none" stroke="#33221A" stroke-width="6.5" stroke-linecap="round"/>
+        <!-- blush -->
+        <ellipse cx="88" cy="127" rx="10" ry="6.5" fill="#FFC9D4"/>
+        <ellipse cx="168" cy="127" rx="10" ry="6.5" fill="#FFC9D4"/>
+        <!-- ω mouth -->
+        <path d="M119 122 q4.5 6 9 0 q4.5 6 9 0" fill="none" stroke="#33221A" stroke-width="5" stroke-linecap="round"/>
+        <!-- whiskers -->
+        <path d="M52 106 h-20 M54 118 l-18 6 M204 106 h20 M202 118 l18 6"
+              stroke="#33221A" stroke-width="5" stroke-linecap="round"/>
+        <!-- boba cup in right paw -->
+        <g>
+          <path d="M188 158 h52 l-7 52 h-38 Z" fill="url(#cupTea)" stroke="#33221A" stroke-width="6" stroke-linejoin="round"/>
+          <path d="M186 148 h56 v10 h-56 Z" fill="#FFF6EA" stroke="#33221A" stroke-width="5" stroke-linejoin="round"/>
+          <line x1="216" y1="148" x2="228" y2="112" stroke="#E60012" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="203" cy="200" r="5" fill="#5C3A1E"/>
+          <circle cx="216" cy="203" r="5" fill="#5C3A1E"/>
+          <circle cx="229" cy="199" r="5" fill="#5C3A1E"/>
+          <!-- paw hugging the cup -->
+          <circle cx="192" cy="182" r="15" fill="#FFFFFF" stroke="#33221A" stroke-width="6"/>
+        </g>
+      </symbol>
+
+      <!-- Cat head logo mark -->
+      <symbol id="cat-head" viewBox="0 0 64 64">
+        <path d="M12 26 L7 6 L24 15 Z" fill="#FFFFFF" stroke="#33221A" stroke-width="3.5" stroke-linejoin="round"/>
+        <path d="M52 26 L57 6 L40 15 Z" fill="#FFFFFF" stroke="#33221A" stroke-width="3.5" stroke-linejoin="round"/>
+        <circle cx="32" cy="36" r="23" fill="#FFFFFF" stroke="#33221A" stroke-width="3.5"/>
+        <path d="M21 35 q4 -5 8 0 M35 35 q4 -5 8 0" fill="none" stroke="#33221A" stroke-width="3" stroke-linecap="round"/>
+        <path d="M28 42 q2 3 4 0 q2 3 4 0" fill="none" stroke="#33221A" stroke-width="2.5" stroke-linecap="round"/>
+        <ellipse cx="17" cy="41" rx="3.4" ry="2.2" fill="#FFC9D4"/>
+        <ellipse cx="47" cy="41" rx="3.4" ry="2.2" fill="#FFC9D4"/>
+        <path d="M13 50 q19 8 38 0 l1.5 5 q-20.5 9 -41 0 Z" fill="#E60012"/>
+      </symbol>
+
+      <!-- Bag icon -->
+      <symbol id="icon-bag" viewBox="0 0 24 24">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+        <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2"></line>
+        <path d="M16 10a4 4 0 0 1-8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ════════════════════════ NAVBAR ════════════════════════ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="nav__logo" href="#top">
+        <svg class="nav__cat" aria-hidden="true"><use href="#cat-head"/></svg>
+        <span>bingyu<em>.冰语</em></span>
+      </a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="#menu">Menu 🧋</a>
+        <a href="#story">Our Story</a>
+        <a href="#locations">Locations</a>
+        <a href="#story" class="nav__mascot-link">Meet 冰语猫</a>
+      </nav>
+
+      <div class="nav__right">
+        <!-- Cart button in header -->
+        <button class="nav__cart-btn" id="openCartBtn" aria-label="Open Shopping Bag">
+          <svg class="nav__cart-icon" aria-hidden="true"><use href="#icon-bag"/></svg>
+          <span class="nav__cart-label">Bag</span>
+          <span class="nav__cart-badge" id="cartBadge">0</span>
+        </button>
+
+        <a class="btn btn--red nav__cta" href="#menu">Order Now <span class="btn__emoji">🎉</span></a>
+
+        <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════════════════════ HERO ════════════════════════ -->
+  <section class="hero" id="top">
+    <div class="hero__blob hero__blob--1"></div>
+    <div class="hero__blob hero__blob--2"></div>
+    <div class="hero__blob hero__blob--3"></div>
+
+    <div class="container hero__grid">
+      <div class="hero__copy reveal">
+        <span class="chip chip--red">✨ Brand new spot, brand new vibe</span>
+        <h1 class="hero__title">
+          Sweet moments<br />
+          <span class="hero__highlight">start here</span> <svg class="hero__title-cat" aria-hidden="true"><use href="#cat-head"/></svg>
+        </h1>
+        <p class="hero__tagline">
+          The coolest sensation in town 🍧 Photogenic boba, cloud-soft sundaes
+          and ice-blue teas — customize your toppings, add to bag, and order directly!
+        </p>
+        <ul class="hero__trio" aria-label="What we serve">
+          <li>Boba</li><li>Ice Cream</li><li>Coffee</li><li>Vibes</li>
+        </ul>
+        <div class="hero__actions">
+          <a href="#menu" class="btn btn--red btn--lg">Order Online 🧋</a>
+          <a href="#locations" class="btn btn--ghost btn--lg">Find a Store 📍</a>
+        </div>
+        <p class="hero__micro">Treats from <strong>Rs. 250</strong> · Online Ordering &amp; Delivery · 100% photo-worthy 📸</p>
+      </div>
+
+      <div class="hero__visual reveal">
+        <div class="hero__frame">
+          <img src="assets/images/hero-bubbletea.jpg" alt="Iced pearl milk tea with tapioca pearls" />
+          <span class="sticker sticker--rotate-l">NEW<br/>SEASON ✨</span>
+        </div>
+        <img class="hero__float hero__float--cone" src="assets/images/cone-sky.jpg" alt="Soft serve cone against a blue sky" />
+        <img class="hero__float hero__float--sundae" src="assets/images/sundae-strawberry.jpg" alt="Strawberry sundae with whipped cream" />
+        <svg class="hero__mascot" role="img" aria-label="Bingyu Cat mascot holding a cup of milk tea"><use href="#bingyu-cat"/></svg>
+      </div>
+    </div>
+
+    <!-- marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>🧋 Boba that slaps</span><span>🍨 Sundaes for the squad</span><span>☕ Coffee till late</span>
+        <span>💙 Ice-blue everything</span><span>🐱 冰语猫 says hi!</span><span>🎉 From Rs. 250</span>
+        <span>🧋 Boba that slaps</span><span>🍨 Sundaes for the squad</span><span>☕ Coffee till late</span>
+        <span>💙 Ice-blue everything</span><span>🐱 冰语猫 says hi!</span><span>🎉 From Rs. 250</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ STATS ════════════════════════ -->
+  <section class="stats">
+    <div class="container stats__grid">
+      <div class="stat reveal">
+        <span class="stat__num">Rs.<b>250</b></span>
+        <span class="stat__label">where the fun starts 🎈</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat__num"><b>11+</b></span>
+        <span class="stat__label">signature sips &amp; scoops 🧋</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat__num"><b>1:30</b><small>AM</small></span>
+        <span class="stat__label">Kollupitiya night runs 🌙</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat__num"><b>3</b><small>&amp; growing</small></span>
+        <span class="stat__label">cities on the map 🗺️</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ MENU & ORDERING ════════════════════════ -->
+  <section class="menu section" id="menu">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="chip chip--cream">🧋 Interactive Menu</span>
+        <h2>Pick your <span class="hl-red">happy</span> ☺️</h2>
+        <p>Click any item to customize size, sweetness, ice, &amp; toppings, or use Quick Add to build your bag!</p>
+      </div>
+
+      <!-- Live Search Bar -->
+      <div class="menu__search-wrap reveal">
+        <div class="menu__search-bar">
+          <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="menuSearchInput" placeholder="Search boba, sundaes, fruit tea, coffee..." aria-label="Search menu items" />
+          <button type="button" id="clearSearchBtn" class="search-clear" aria-label="Clear search" style="display:none;">✕</button>
+        </div>
+        <div class="menu__search-summary" id="searchSummary" style="display:none;"></div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="filters reveal" id="filters" role="tablist" aria-label="Menu categories">
+        <button class="filter is-active" data-filter="all">All ✨ <span class="filter-count">(11)</span></button>
+        <button class="filter" data-filter="boba">Boba Tea 🧋 <span class="filter-count">(3)</span></button>
+        <button class="filter" data-filter="icecream">Sundaes &amp; Cones 🍨 <span class="filter-count">(3)</span></button>
+        <button class="filter" data-filter="fruittea">Fruit Teas 💙 <span class="filter-count">(3)</span></button>
+        <button class="filter" data-filter="coffee">Coffee ☕ <span class="filter-count">(2)</span></button>
+      </div>
+
+      <!-- Menu Items Grid -->
+      <div class="menu__grid" id="menuGrid">
+
+        <!-- BOBA 1 -->
+        <article class="card reveal" data-id="boba-classic" data-cat="boba" data-name="Classic Pearl Milk Tea" data-price="350" data-img="assets/images/hero-bubbletea.jpg" data-desc="Silky brew, chewy pearls. The one that started it all." data-type="drink">
+          <div class="card__media">
+            <img src="assets/images/hero-bubbletea.jpg" alt="Classic pearl milk tea" loading="lazy"/>
+            <span class="badge badge--hot">🔥 Bestseller</span>
+          </div>
+          <div class="card__body">
+            <div class="card__row"><h3>Classic Pearl Milk Tea</h3><span class="price">Rs. 350</span></div>
+            <p>Silky brew, chewy pearls. The one that started it all.</p>
+            <div class="card__actions">
+              <button type="button" class="btn btn--card-customize btn-customize">Customize 🧋</button>
+              <button type="button" class="btn btn--card-quick btn-quick-add" title="Quick Add to Bag">+</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- BOBA 2 -->
+        <article class="card reveal" data-id="boba-brown-sugar" data-cat="boba" data-name="Brown Sugar Boba" data-price="450" data-img="assets/images/boba-sunny.jpg" data-desc="Caramel-swirled stripes, warm brown-sugar pearls." data-type="drink">
+          <div class="card__media">
+            <img src="assets/images/boba-sunny.jpg" alt="Brown sugar boba milk tea held to the sun" loading="lazy"/>
+            <span class="badge badge--new">HOT 🔥</span>
+          </div>
+          <div class="card__body">
+            <div class="card__row"><h3>Brown Sugar Boba</h3><span class="price">Rs. 450</span></div>
+            <p>Caramel-swirled stripes, warm brown-sugar pearls.</p>
+            <div class="card__actions">
+              <button type="button" class="btn btn--card-customize btn-customize">Customize 🧋</button>
+              <button type="button" class="btn btn--card-quick btn-quick-add" title="Quick Add to Bag">+</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- BOBA 3 -->
+        <article class="card reveal" data-id="boba-taro" data-cat="boba" data-name="Taro Cloud Milk Tea" data-price="480" data-img="assets/images/milktea-pink.jpg" data-desc="Lavender-hued, pillow-soft. A pastel daydream." data-type="drink">
+          <div class="card__media">
+            <img src="assets/images/milktea-pink.jpg" alt="Taro cloud milk tea in sunlight" loading="lazy"/>
+            <span class="badge badge--soft">☁️ Creamy</span>
+          </div>
+          <div class="card__body">
+            <div class="card__row"><h3>Taro Cloud Milk Tea</h3><span class="price">Rs. 480</span></div>
+            <p>Lavender-hued, pillow-soft. A pastel daydream.</p>
+            <div class="card__actions">
+              <button type="button" class="btn btn--card-customize btn-customize">Customize 🧋</button>
+              <button type="button" class="btn btn--card-quick btn-quick-add" title="Quick Add to Bag">+</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ICE CREAM 1 -->
+        <article class="card reveal" data-id="icecream-seasalt-cone" data-cat="icecream" data-name="Sea-Salt Soft Cone" data-price="250" data-img="assets/images/cone-sky.jpg" data-desc="Salty-sweet swirl against a Colombo-blue sky." data-type="icecream">
+          <div class="card__media">
+            <img src="assets/images/cone-sky.jpg" alt="Sea salt soft serve cone against blue sky" loading="lazy"/>
+            <span class="badge badge--value">Rs. 250 only 😎</span>
+          </div>
+          <div class="card__body">
+            <div class="card__row"><h3>Sea-Salt Soft Cone</h3><span class="price">Rs. 250</span></div>
+            <p>Salty-sweet swirl against a Colombo-blue sky.</p>
+            <div class="card__actions">
+              <button type="button" class="btn btn--card-customize btn-customize">Customize 🍨</button>
+              <button type="button" class="btn btn--card-quick btn-quick-add" title="Quick Add to Bag">+</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ICE CREAM 2 -->
+        <article class="card reveal" data-id="icecream-blueberry-sundae" data-cat="icecream" data-name="Blueberry Cloud Sundae" data-price="500" data-img="assets/images/icecream-cup.jpg" data-desc="Velvet vanilla, berry ripple, cloud of cream." data-type="icecream">
+          <div class="card__media">
+            <img src="assets/images/icecream-cup.jpg" alt="Blueberry sundae cup" loading="lazy"/>
+            <span class="badge badge--new">NEW ✨</span>
+          </div>
+          <div class="card__body">
+            <div class="card__row"><h3>Blueberry Cloud Sundae</h3><span class="price">Rs. 500</span></div>
+            <p>Velvet vanilla, berry ripple, cloud of cream.</p>
+            <div class="card__actions">
+              <button type="button" class="btn btn--card-customize btn-customize">Customize 🍨</button>
+              <button type="button" class="btn btn--card-quick btn-quick-add" title="Quick Add to Bag">+</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ICE CREAM 3 -->
+        <article class="card reveal" data-id="icecream-strawberry-sundae" data-cat="icecream" data-name="Strawberry Snow Sundae" data-price="550" data-img="assets/images/sundae-strawberry.jpg" data-desc="Pink-on-pink, topped with fresh berries." data-type="icecream">
+          <div class="card__media">
+            <img src="assets/images/sundae-strawberry.jpg" alt="Strawberry snow sundae with strawberries" loading="lazy"/>
+            <span class="badge badge--soft">📸 Photogenic</span>
+          </div>
+          <div class="card__body">
+            <div class="card__row"><h3>Strawberry Snow Sundae</h3><span class="price">Rs. 550</span></div>
+            <p>Pink-on-pink, topped with fresh berries.</p>
+            <div class="card__actions">
+              <button type="button" class="btn btn--card-customize btn-customize">Customize 🍨</button>
+              <button type="button" class="btn btn--card-quick btn-quick-add" title="Quick Add to Bag">+</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- FRUIT TEAS 1 -->
+        <article class="card reveal" data-id="tea-pineapple-blue" data-cat="fruittea" data-name="Pineapple Ice Blue Tea" data-price="450" data-img="assets/images/blue-ice-soda.jpg" data-desc="The photogenic blue one. Tastes like a beach holiday." data-type="drink">
+          <div class="card__media">
+            <img src="assets/images/blue-ice-soda.jpg" alt="Pineapple ice blue sparkling tea" loading="lazy"/>
+            <span class="badge badge--blue">💙 VIRAL</span>
+          </div>
+          <div class="card__body">
+            <div class="card__row"><h3>Pineapple Ice Blue Tea</h3><span class="price">Rs. 450</span></div>
+            <p>The photogenic blue one. Tastes like a beach holiday.</p>
+            <div class="card__actions">
+              <button type="button" class="btn btn--card-customize btn-customize">Customize 💙</button>
+              <button type="button" class="btn btn--card-quick btn-quick-add" title="Quick Add to Bag">+</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- FRUIT TEAS 2 -->
+        <article class="card reveal" data-id="tea-berry-citrus" data-cat="fruittea" data-name="Berry-Citrus Iced Tea" data-price="450" data-img="assets/images/icedtea-hibiscus.jpg" data-desc="Hibiscus-red, citrus-bright, instantly cooler." data-type="drink">
+          <div class="card__media">
+            <img src="assets/images/icedtea-hibiscus.jpg" alt="Berry citrus iced tea with lime" loading="lazy"/>
+            <span class="badge badge--soft">Refresh ⚡</span>
+          </div>
+          <div class="card__body">
+            <div class="card__row"><h3>Berry-Citrus Iced Tea</h3><span class="price">Rs. 450</span></div>
+            <p>Hibiscus-red, citrus-bright, instantly cooler.</p>
+            <div class="card__actions">
+              <button type="button" class="btn btn--card-customize btn-customize">Customize 🧋</button>
+              <button type="button" class="btn btn--card-quick btn-quick-add" title="Quick Add to Bag">+</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- FRUIT TEAS 3 -->
+        <article class="card reveal" data-id="tea-sunrise-lemon" data-cat="fruittea" data-name="Sunrise Lemon Black Tea" data-price="400" data-img="assets/images/icedtea-lemon.jpg" data-desc="Golden, zingy, after-school classic." data-type="drink">
+          <div class="card__media">
+            <img src="assets/images/icedtea-lemon.jpg" alt="Sunrise lemon black iced tea" loading="lazy"/>
+            <span class="badge badge--soft">Classic 🍋</span>
+          </div>
+          <div class="card__body">
+            <div class="card__row"><h3>Sunrise Lemon Black Tea</h3><span class="price">Rs. 400</span></div>
+            <p>Golden, zingy, after-school classic.</p>
+            <div class="card__actions">
+              <button type="button" class="btn btn--card-customize btn-customize">Customize 🧋</button>
+              <button type="button" class="btn btn--card-quick btn-quick-add" title="Quick Add to Bag">+</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- COFFEE 1 -->
+        <article class="card reveal" data-id="coffee-vietnamese" data-cat="coffee" data-name="Iced Vietnamese Latte" data-price="550" data-img="assets/images/coffee-iced.jpg" data-desc="Slow-drip robusta over ice. Late-night fuel." data-type="drink">
+          <div class="card__media">
+            <img src="assets/images/coffee-iced.jpg" alt="Iced Vietnamese latte against city street" loading="lazy"/>
+            <span class="badge badge--soft">Bold ☕</span>
+          </div>
+          <div class="card__body">
+            <div class="card__row"><h3>Iced Vietnamese Latte</h3><span class="price">Rs. 550</span></div>
+            <p>Slow-drip robusta over ice. Late-night fuel.</p>
+            <div class="card__actions">
+              <button type="button" class="btn btn--card-customize btn-customize">Customize ☕</button>
+              <button type="button" class="btn btn--card-quick btn-quick-add" title="Quick Add to Bag">+</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- COFFEE 2 -->
+        <article class="card reveal" data-id="coffee-frappe" data-cat="coffee" data-name="Sea-Salt Caramel Frappé" data-price="600" data-img="assets/images/coffee-row.jpg" data-desc="Blended cold, salted sweet, whipped tall." data-type="drink">
+          <div class="card__media">
+            <img src="assets/images/coffee-row.jpg" alt="Row of iced coffees on cafe counter" loading="lazy"/>
+            <span class="badge badge--new">CREW PICK 🙌</span>
+          </div>
+          <div class="card__body">
+            <div class="card__row"><h3>Sea-Salt Caramel Frappé</h3><span class="price">Rs. 600</span></div>
+            <p>Blended cold, salted sweet, whipped tall.</p>
+            <div class="card__actions">
+              <button type="button" class="btn btn--card-customize btn-customize">Customize ☕</button>
+              <button type="button" class="btn btn--card-quick btn-quick-add" title="Quick Add to Bag">+</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="menu__note reveal">…plus snacks, merch &amp; seasonal drops in store 🎁 <span>Full menu at the counter — prices in LKR.</span></p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ BRAND STORY ════════════════════════ -->
+  <section class="story section" id="story">
+    <div class="container story__grid">
+      <div class="story__photos reveal">
+        <img class="story__main" src="assets/images/shop-interior.jpg" alt="Colorful bubble tea shop interior" loading="lazy"/>
+        <div class="story__mascot-card">
+          <svg class="story__mascot" role="img" aria-label="Bingyu Cat mascot with red scarf and milk tea"><use href="#bingyu-cat"/></svg>
+          <div>
+            <h4>冰语猫 · Bingyu Cat</h4>
+            <p>Your brand partner since April 2026 — sunny, warm, always up for a hang ☀️</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="story__copy reveal">
+        <span class="chip chip--wood">🏠 Our Story</span>
+        <h2>Not a café.<br />A <span class="hl-red">corner-shop</span> for your whole mood.</h2>
+        <p>
+          Bingyu was born on busy streets, built for young people who want more than
+          a drink — a place to <strong>browse snacks, snap photos, laugh too loud,
+          and stay a while</strong>. Warm wood shelves, mural walls, giant cat statues
+          and ceiling lights that make everyone look good.
+        </p>
+        <p>
+          From a “product window” to a <strong>youth lifestyle hub</strong> —
+          茶饮 + 零食 + 社交 + 休闲. That's the plan, and it tastes great.
+        </p>
+        <ul class="story__list">
+          <li>🪵 Warm wood + cream interiors — cozy, never cold</li>
+          <li>🐱 冰语猫 everywhere: cups, murals, standees &amp; merch</li>
+          <li>📸 Photo-op corners designed for your grid</li>
+          <li>🍿 Snack shelves for browsing between sips</li>
+        </ul>
+        <a href="#locations" class="btn btn--wood">Come hang out 📍</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ LOCATIONS ════════════════════════ -->
+  <section class="locations section" id="locations">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="chip chip--cream">📍 Locations</span>
+        <h2>Find your nearest <span class="hl-red">bingyu</span> 🐾</h2>
+        <p>Three stores live, more brewing. Follow @bingyulk for opening countdowns.</p>
+      </div>
+
+      <div class="loc__grid">
+        <article class="loc reveal">
+          <span class="loc__tag loc__tag--flag">🚩 Flagship</span>
+          <h3>Nugegoda</h3>
+          <p class="loc__desc">The original 冰语小卖部 corner-shop. Campus crowds, snack shelves &amp; photo walls.</p>
+          <p class="loc__hours">⏰ Open daily · 10:00 – 23:00</p>
+        </article>
+
+        <article class="loc reveal">
+          <span class="loc__tag loc__tag--night">🌙 Night Owl</span>
+          <h3>Kollupitiya</h3>
+          <p class="loc__desc">Colombo's after-dark dessert run. Cones and coffee till the stars clock out.</p>
+          <p class="loc__hours">⏰ Open daily · till 1:30 AM</p>
+        </article>
+
+        <article class="loc reveal">
+          <span class="loc__tag loc__tag--coast">🌊 Coastal First</span>
+          <h3>Galle</h3>
+          <p class="loc__desc">The first of many seaside stops. Same cat, same red, ocean breeze included.</p>
+          <p class="loc__hours">⏰ Open daily · 10:00 – 22:00</p>
+        </article>
+
+        <article class="loc loc--soon reveal">
+          <span class="loc__tag loc__tag--soon">⏳ Coming Soon</span>
+          <h3>Bambalapitiya</h3>
+          <p class="loc__desc">Almost there. Watch this space — and our socials — for the drop date.</p>
+          <p class="loc__hours">🔔 Announced soon</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ CTA BAND ════════════════════════ -->
+  <section class="cta-band">
+    <div class="container cta-band__inner reveal">
+      <svg class="cta-band__cat" aria-hidden="true"><use href="#cat-head"/></svg>
+      <div>
+        <h2>Grab your crew. 🎉</h2>
+        <p>Giveaways, prediction contests &amp; new-drop countdowns — it's all happening on our socials.</p>
+      </div>
+      <a href="#top" class="btn btn--cream btn--lg">Follow @bingyulk 💬</a>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ FOOTER ════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="nav__logo footer__logo" href="#top">
+          <svg class="nav__cat" aria-hidden="true"><use href="#cat-head"/></svg>
+          <span>bingyu<em>.冰语</em></span>
+        </a>
+        <p class="footer__trio">Boba • Ice Cream • Coffee • Vibes</p>
+        <p>Affordable indulgence, youthful warmth,<br/>street-smart fun. 活力红 forever ❤️</p>
+      </div>
+
+      <div class="footer__col">
+        <h5>Explore</h5>
+        <a href="#menu">Menu</a>
+        <a href="#story">Brand Story</a>
+        <a href="#locations">Locations</a>
+      </div>
+
+      <div class="footer__col">
+        <h5>Stores</h5>
+        <a href="#locations">Nugegoda</a>
+        <a href="#locations">Kollupitiya 🌙</a>
+        <a href="#locations">Galle</a>
+        <a href="#locations">Bambalapitiya (soon)</a>
+      </div>
+
+      <div class="footer__col">
+        <h5>Say hi 👋</h5>
+        <a href="#top">Instagram @bingyulk</a>
+        <a href="#top">Facebook /bingyulk</a>
+        <a href="#top">TikTok @bingyulk</a>
+      </div>
+    </div>
+
+    <div class="container footer__base">
+      <p>© <span id="year">2026</span> Bingyu 冰语 · All rights reserved · Made with 🧋 &amp; ❤️</p>
+      <p class="footer__credit">Photography via Pexels free stock</p>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════ FLOATING CART BUTTON ════════════════════════ -->
+  <button class="floating-cart" id="floatingCartBtn" aria-label="View Shopping Bag">
+    <svg class="floating-cart__icon" width="26" height="26"><use href="#icon-bag"/></svg>
+    <span class="floating-cart__badge" id="floatingCartBadge">0</span>
+  </button>
+
+  <!-- ════════════════════════ CART DRAWER (SLIDE-OVER) ════════════════════════ -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping Bag" aria-hidden="true">
+    <div class="cart-drawer__header">
+      <div class="cart-drawer__title">
+        <svg width="24" height="24"><use href="#icon-bag"/></svg>
+        <h3>Your Bag <span class="cart-badge-pill" id="cartHeaderCount">0</span></h3>
+      </div>
+      <button type="button" class="cart-drawer__close" id="closeCartBtn" aria-label="Close Bag">&times;</button>
+    </div>
+
+    <!-- Free Delivery Progress Meter -->
+    <div class="cart-meter">
+      <div class="cart-meter__info">
+        <span id="freeDeliveryText">Add Rs. 1,500 more for <strong>FREE Colombo Delivery</strong> 🛵</span>
+      </div>
+      <div class="cart-meter__track">
+        <div class="cart-meter__fill" id="freeDeliveryBar" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Items List or Empty State -->
+    <div class="cart-drawer__body" id="cartItemsContainer">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Cart Footer & Checkout Action -->
+    <div class="cart-drawer__footer" id="cartFooter">
+      <!-- Promo Code Box -->
+      <div class="promo-box">
+        <div class="promo-box__input-row">
+          <input type="text" id="promoInput" placeholder="Promo code (e.g. BINGYU10)" autocomplete="off" />
+          <button type="button" id="applyPromoBtn" class="btn btn--wood btn--sm">Apply</button>
+        </div>
+        <div class="promo-box__tag" id="promoAppliedTag" style="display: none;">
+          <span>🎉 Code <b>BINGYU10</b> applied!</span>
+          <button type="button" id="removePromoBtn" aria-label="Remove promo">✕</button>
+        </div>
+      </div>
+
+      <!-- Price Breakdown -->
+      <div class="cart-summary">
+        <div class="cart-summary__row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">Rs. 0</span>
+        </div>
+        <div class="cart-summary__row discount-row" id="cartDiscountRow" style="display: none;">
+          <span>Discount (<span id="discountLabel">Promo</span>)</span>
+          <span id="cartDiscount">-Rs. 0</span>
+        </div>
+        <div class="cart-summary__row">
+          <span>Delivery Fee</span>
+          <span id="cartDelivery">Rs. 250</span>
+        </div>
+        <div class="cart-summary__row total-row">
+          <span>Total (LKR)</span>
+          <strong id="cartTotal">Rs. 0</strong>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="cart-drawer__actions">
+        <button type="button" class="btn btn--red btn--block btn--lg" id="proceedCheckoutBtn">
+          Checkout Now 🚀
+        </button>
+        <button type="button" class="btn-clear-cart" id="clearCartBtn">Clear Bag</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ════════════════════════ PRODUCT CUSTOMIZER MODAL ════════════════════════ -->
+  <div class="modal-overlay" id="customModalOverlay" aria-hidden="true">
+    <div class="custom-modal" id="customModal" role="dialog" aria-modal="true" aria-labelledby="customModalTitle">
+      <button type="button" class="modal-close" id="closeCustomModalBtn" aria-label="Close modal">&times;</button>
+
+      <div class="custom-modal__header">
+        <div class="custom-modal__img-wrap">
+          <img id="customModalImg" src="assets/images/hero-bubbletea.jpg" alt="Item preview" />
+        </div>
+        <div class="custom-modal__info">
+          <span class="chip chip--red custom-modal__cat" id="customModalCat">Boba Tea</span>
+          <h3 id="customModalTitle">Classic Pearl Milk Tea</h3>
+          <p id="customModalDesc">Silky brew, chewy pearls. The one that started it all.</p>
+          <div class="custom-modal__base-price">Base: <b id="customModalBasePrice">Rs. 350</b></div>
+        </div>
+      </div>
+
+      <div class="custom-modal__body">
+        <!-- Size Selection -->
+        <div class="custom-group" id="sizeGroup">
+          <div class="custom-group__label">
+            <span>Choose Size</span> <span class="badge-req">Required</span>
+          </div>
+          <div class="option-pills">
+            <label class="option-pill">
+              <input type="radio" name="customSize" value="Regular" data-price="0" checked />
+              <span class="option-pill__content">
+                <span class="option-pill__name">Regular (500ml)</span>
+                <span class="option-pill__price">+Rs. 0</span>
+              </span>
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="customSize" value="Large" data-price="100" />
+              <span class="option-pill__content">
+                <span class="option-pill__name">Large (700ml) 🥤</span>
+                <span class="option-pill__price">+Rs. 100</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Sweetness Selection (for Drinks) -->
+        <div class="custom-group" id="sugarGroup">
+          <div class="custom-group__label">
+            <span>Sweetness / Sugar Level</span>
+          </div>
+          <div class="option-pills option-pills--wrap">
+            <label class="option-pill">
+              <input type="radio" name="customSugar" value="100% (Standard)" checked />
+              <span class="option-pill__content">
+                <span class="option-pill__name">100% (Standard)</span>
+              </span>
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="customSugar" value="70% (Less Sweet)" />
+              <span class="option-pill__content">
+                <span class="option-pill__name">70% (Less Sweet)</span>
+              </span>
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="customSugar" value="50% (Half Sweet)" />
+              <span class="option-pill__content">
+                <span class="option-pill__name">50% (Half Sweet)</span>
+              </span>
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="customSugar" value="0% (No Sugar)" />
+              <span class="option-pill__content">
+                <span class="option-pill__name">0% (No Sugar)</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Ice Level (for Drinks) -->
+        <div class="custom-group" id="iceGroup">
+          <div class="custom-group__label">
+            <span>Ice Level</span>
+          </div>
+          <div class="option-pills option-pills--wrap">
+            <label class="option-pill">
+              <input type="radio" name="customIce" value="Regular Ice 🧊" checked />
+              <span class="option-pill__content">
+                <span class="option-pill__name">Regular Ice 🧊</span>
+              </span>
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="customIce" value="Less Ice ❄️" />
+              <span class="option-pill__content">
+                <span class="option-pill__name">Less Ice ❄️</span>
+              </span>
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="customIce" value="No Ice 🚫" />
+              <span class="option-pill__content">
+                <span class="option-pill__name">No Ice 🚫</span>
+              </span>
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="customIce" value="Warm / Hot 🔥" />
+              <span class="option-pill__content">
+                <span class="option-pill__name">Warm / Hot 🔥</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Extra Toppings -->
+        <div class="custom-group" id="toppingsGroup">
+          <div class="custom-group__label">
+            <span>Add Extra Toppings (Optional)</span>
+          </div>
+          <div class="topping-grid">
+            <label class="topping-item">
+              <input type="checkbox" name="customToppings" value="Tapioca Pearls" data-price="70" />
+              <span class="topping-item__box">
+                <span class="topping-item__name">🧋 Tapioca Pearls</span>
+                <span class="topping-item__price">+Rs. 70</span>
+              </span>
+            </label>
+            <label class="topping-item">
+              <input type="checkbox" name="customToppings" value="Popping Boba" data-price="80" />
+              <span class="topping-item__box">
+                <span class="topping-item__name">✨ Popping Boba</span>
+                <span class="topping-item__price">+Rs. 80</span>
+              </span>
+            </label>
+            <label class="topping-item">
+              <input type="checkbox" name="customToppings" value="Coconut Jelly" data-price="60" />
+              <span class="topping-item__box">
+                <span class="topping-item__name">🥥 Coconut Jelly</span>
+                <span class="topping-item__price">+Rs. 60</span>
+              </span>
+            </label>
+            <label class="topping-item">
+              <input type="checkbox" name="customToppings" value="Cheese Foam" data-price="120" />
+              <span class="topping-item__box">
+                <span class="topping-item__name">🧀 Cheese Foam Layer</span>
+                <span class="topping-item__price">+Rs. 120</span>
+              </span>
+            </label>
+            <label class="topping-item">
+              <input type="checkbox" name="customToppings" value="Egg Pudding" data-price="80" />
+              <span class="topping-item__box">
+                <span class="topping-item__name">🍮 Egg Pudding</span>
+                <span class="topping-item__price">+Rs. 80</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Special Notes -->
+        <div class="custom-group">
+          <div class="custom-group__label">
+            <label for="customNotes">Special Instructions / Notes</label>
+          </div>
+          <textarea id="customNotes" rows="2" placeholder="e.g., extra straw, separate ice in bag, write a cute note on cup..."></textarea>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="custom-modal__footer">
+        <div class="qty-stepper">
+          <button type="button" class="qty-stepper__btn" id="customQtyDec" aria-label="Decrease quantity">−</button>
+          <span class="qty-stepper__val" id="customQtyVal">1</span>
+          <button type="button" class="qty-stepper__btn" id="customQtyInc" aria-label="Increase quantity">+</button>
+        </div>
+        <button type="button" class="btn btn--red btn--lg btn--modal-add" id="customAddToCartBtn">
+          Add to Bag • <span id="customModalFinalPrice">Rs. 350</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════ CHECKOUT MODAL ════════════════════════ -->
+  <div class="modal-overlay" id="checkoutModalOverlay" aria-hidden="true">
+    <div class="custom-modal checkout-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutModalTitle">
+      <button type="button" class="modal-close" id="closeCheckoutModalBtn" aria-label="Close modal">&times;</button>
+
+      <div class="checkout-modal__head">
+        <svg class="checkout-modal__cat" aria-hidden="true"><use href="#cat-head"/></svg>
+        <div>
+          <h3 id="checkoutModalTitle">Complete Your Order</h3>
+          <p>Order direct or submit instantly via WhatsApp 💬</p>
+        </div>
+      </div>
+
+      <form id="checkoutForm" class="checkout-form" onsubmit="return false;">
+        <!-- Order Type Toggle: Delivery vs Pickup -->
+        <div class="order-type-switch">
+          <label class="order-type-btn is-active" id="typeDeliveryLabel">
+            <input type="radio" name="orderType" value="delivery" checked />
+            <span>🛵 Home Delivery</span>
+          </label>
+          <label class="order-type-btn" id="typePickupLabel">
+            <input type="radio" name="orderType" value="pickup" />
+            <span>🛍️ Store Pickup</span>
+          </label>
+        </div>
+
+        <div class="checkout-form__grid">
+          <div class="form-group">
+            <label for="custName">Your Name <span class="req">*</span></label>
+            <input type="text" id="custName" placeholder="e.g. Kasun Fernando" required />
+          </div>
+
+          <div class="form-group">
+            <label for="custPhone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="custPhone" placeholder="e.g. 077 123 4567" required />
+          </div>
+        </div>
+
+        <!-- Store Pickup Selection (Shown if Pickup selected) -->
+        <div class="form-group" id="pickupStoreGroup" style="display: none;">
+          <label for="custStore">Select Pickup Branch <span class="req">*</span></label>
+          <select id="custStore">
+            <option value="Nugegoda Flagship">Nugegoda Flagship (Open till 11:00 PM)</option>
+            <option value="Kollupitiya Night Owl">Kollupitiya Night Owl (Open till 1:30 AM)</option>
+            <option value="Galle Coastal">Galle Fort Coastal (Open till 10:00 PM)</option>
+          </select>
+        </div>
+
+        <!-- Delivery Address Fields (Shown if Delivery selected) -->
+        <div id="deliveryFieldsGroup">
+          <div class="form-group">
+            <label for="custAddress">Delivery Address <span class="req">*</span></label>
+            <input type="text" id="custAddress" placeholder="e.g. No. 42, Galle Road, Colombo 03" />
+          </div>
+
+          <div class="form-group">
+            <label for="custCity">City / Area</label>
+            <input type="text" id="custCity" placeholder="e.g. Colombo 03 / Kollupitiya / Nugegoda" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="custPayment">Payment Method</label>
+          <select id="custPayment">
+            <option value="Cash on Delivery / Pickup">💵 Cash on Delivery / Pickup</option>
+            <option value="Card (POS Machine at door)">💳 Card (POS Machine on Delivery)</option>
+            <option value="Bank Transfer / LankaQR">📱 Bank Transfer / LankaQR Instant</option>
+          </select>
+        </div>
+
+        <!-- Order Summary Box -->
+        <div class="checkout-order-box">
+          <div class="checkout-order-box__header">
+            <span>Order Summary</span>
+            <span id="checkoutItemCount">0 items</span>
+          </div>
+          <div class="checkout-order-box__list" id="checkoutMiniList"></div>
+          <div class="checkout-order-box__total">
+            <span>Total Payable:</span>
+            <strong id="checkoutFinalTotal">Rs. 0</strong>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="checkout-actions">
+          <button type="button" class="btn btn--whatsapp" id="orderWhatsAppBtn">
+            <span class="wa-icon">💬</span> Order via WhatsApp
+          </button>
+          <button type="button" class="btn btn--red" id="orderDirectBtn">
+            Place Direct Order ⚡
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ════════════════════════ ORDER CONFIRMATION / RECEIPT MODAL ════════════════════════ -->
+  <div class="modal-overlay" id="receiptModalOverlay" aria-hidden="true">
+    <div class="custom-modal receipt-modal" id="receiptModal" role="dialog" aria-modal="true" aria-labelledby="receiptModalTitle">
+      <button type="button" class="modal-close" id="closeReceiptModalBtn" aria-label="Close modal">&times;</button>
+
+      <div class="receipt-content">
+        <div class="receipt-stamp">
+          <div class="receipt-check">✓</div>
+          <svg class="receipt-cat" aria-hidden="true"><use href="#cat-head"/></svg>
+        </div>
+
+        <h3 id="receiptModalTitle">Order Confirmed! 🎉</h3>
+        <p class="receipt-subtitle">Thank you! Your Bingyu treat is being prepared fresh with love 🧋</p>
+
+        <div class="receipt-card">
+          <div class="receipt-row">
+            <span>Order ID</span>
+            <strong id="receiptOrderId">#BY-89241</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Customer</span>
+            <strong id="receiptCustomerName">Kasun</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Fulfillment</span>
+            <strong id="receiptType">🛵 Delivery</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Destination</span>
+            <span id="receiptDest">Colombo 03</span>
+          </div>
+          <div class="receipt-row">
+            <span>Payment</span>
+            <span id="receiptPayment">Cash</span>
+          </div>
+          <div class="receipt-divider"></div>
+          <div class="receipt-row total">
+            <span>Total Paid / Due</span>
+            <strong id="receiptTotalAmount">Rs. 850</strong>
+          </div>
+        </div>
+
+        <div class="receipt-status-box">
+          <span class="status-dot"></span>
+          <span>Status: <b>Kitchen preparing your sips &amp; scoops 🍦</b> (Est: 20-30 mins)</span>
+        </div>
+
+        <div class="receipt-actions">
+          <button type="button" class="btn btn--red btn--block" id="doneReceiptBtn">Awesome, Back to Menu 🧋</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════ TOAST CONTAINER ════════════════════════ -->
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
